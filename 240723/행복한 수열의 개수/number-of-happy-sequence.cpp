@@ -40,6 +40,8 @@ pr = 0;
         }
         if(check) res++;
         }
+
+        if(m == 1) res  = 2*n;
     cout << res;
 
     return 0;
