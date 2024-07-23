@@ -3,10 +3,19 @@ using namespace std;
 
 int n,m,res;
 int arr[202][202];
+int a,b,c,d;
 
-void func(int x, int y){
-    res = max(res, arr[y][x] + max(arr[y][x+1]+ max(arr[y+1][x+1], arr[y][x+2]),arr[y+1][x]+max(arr[y+2][x],arr[y+1][x+1])));
-    res = max(res,arr[y][x]+arr[y+1][x]+arr[y][x+1]);
+void func(int c, int r){
+   a = arr[c+1][r] + arr[c+2][r];
+   b = arr[c+1][r] + arr[c+1][r+1];
+   c = arr[c][r+1] + arr[c][r+2];
+   d = arr[c][r+1] + arr[c+1][r+1];
+   a = max(a,b);
+   a = max(a,c);
+   a = max(a,d);
+   res = max(a+arr[c][r],res);
+   res = max(res, arr[c][r]+arr[c+1][r]+arr[c][r+1]);
+   
 }
 
 int main() {
