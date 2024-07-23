@@ -5,14 +5,15 @@ using namespace std;
 int n, m, res;
 int arr[202][202];
 
-void func(int col, int row) {
-   int valA = arr[col + 1][row] + max(arr[col + 1][row + 1], arr[col + 2][row]);
-   int valB = arr[col - 1][row] + max(arr[col - 1][row - 1], arr[col - 1][row + 1]);
-   int valC = arr[col][row + 1] + max(arr[col][row + 2], arr[col + 1][row + 1]);  
-   
-   int maxVal = max({valA, valB, valC});
-   res = max(maxVal + arr[col][row], res);
-   res = max(res, arr[col][row] + arr[col + 1][row] + arr[col][row + 1]);   
+int dc[4] = {1,0,-1,0};
+int dr[4] = {0,1,0,-1};
+
+void func(int c, int r) {
+    for(int i = 0; i < 4; i++){
+        for(int j = i+1; j < 4; j++){
+            res = max(arr[c][r]+ arr[c+dc[i]][r+dr[i]]+ arr[c+dc[j]][r+dr[j]],res);
+        }
+    }
 }
 
 int main() {
