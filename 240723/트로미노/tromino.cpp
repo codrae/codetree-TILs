@@ -6,16 +6,13 @@ int arr[202][202];
 int a,b,c,d;
 
 void func(int c, int r){
-   a = arr[c+1][r] + arr[c+2][r];
-   b = arr[c+1][r] + arr[c+1][r+1];
-   c = arr[c][r+1] + arr[c][r+2];
-   d = arr[c][r+1] + arr[c+1][r+1];
+   a = arr[c+1][r] + max(arr[c+1][r+1], arr[c+2][r]);
+   b = arr[c-1][r] + max(arr[c-1][r-1], arr[c-1][r+1]);
+   c = arr[c][r+1] + max(arr[c][r+2],arr[c+1][r+1]);  
    a = max(a,b);
    a = max(a,c);
-   a = max(a,d);
    res = max(a+arr[c][r],res);
-   res = max(res, arr[c][r]+arr[c+1][r]+arr[c][r+1]);
-   
+   res = max(res, arr[c][r]+arr[c+1][r]+arr[c][r+1]);   
 }
 
 int main() {
