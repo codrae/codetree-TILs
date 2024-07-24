@@ -37,7 +37,7 @@ int main() {
     res = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
-            for (int k = 0; k < n; k++) {
+            for (int k = 0; k <= n; k++) {
                 int goldCount = calculateGold(i, j, k);
                 int price = k * k + (k + 1) * (k + 1);
                 if (goldCount * m >= price) {
