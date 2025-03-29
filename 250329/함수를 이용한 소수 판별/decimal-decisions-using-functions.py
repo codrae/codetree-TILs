@@ -11,4 +11,8 @@ sum = 0
 for i in range(a,b+1):
     if(is_Prime(i)) : sum += i
 
+
+if(a == 1) : sum -=1
+
+
 print(sum)
