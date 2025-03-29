@@ -3,11 +3,7 @@ a, b = map(int, input().split())
 # Please write your code here.
 
 def cal(a,b):
-    small,big = (a,b) if a < b else (b,a)
-    small += 10
-    big *= 2
-    return small, big
-
-a, b = cal(a,b)
-
-print(a, b)
+    if(a>b) : a*=2 b+=10
+    else : a+=10 b*=2
+    return a,b
+print(cal(a,b))
